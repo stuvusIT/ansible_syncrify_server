@@ -1,0 +1,28 @@
+---
+syncrify_server_smtp_security: None
+syncrify_server_smtp_port: 587
+syncrify_server_smtp_server: null
+syncrify_server_smtp_user: null
+syncrify_server_smtp_password: null
+syncrify_server_use_web_smtp: false
+syncrify_server_email_server_web_service_host: null
+syncrify_server_email_server_web_service_port: null
+syncrify_server_use_rdbms_for_delete_retension: true
+syncrify_server_jvm_path: jre/bin/java
+syncrify_server_http_ip: 127.0.0.1
+syncrify_server_http_port: 0
+syncrify_server_http_port2: 5800
+syncrify_server_http_port_ssl: -1
+syncrify_server_vm_params: "-Xmx512m -DLoggingConfigFile=logconfig.xm"
+syncrify_server_synametrics_url: "http://synametrics.com/SynametricsWebApp/"
+syncrify_server_last_selected_tab: 1
+syncrify_server_image_path: images/
+syncrify_server_block_rdbms_to_handlers: true
+syncrify_server_default_operation: door
+syncrify_server_ransomware_file_name: 6LUtvYHu.jpg
+syncrify_server_failure_over_http_port: 54222
+syncrify_server_disable_csrf_prevention: true
+syncrify_server_cd: 1565091689911
+syncrify_server_nt_service_command: systemctl start syncrify.service
+syncrify_server_mimic_html_files: false
+

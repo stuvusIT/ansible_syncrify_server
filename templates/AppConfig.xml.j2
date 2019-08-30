@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<parameters>
+		<parameter name="adminEmail" type="1" value="{{ syncrify_server_admin_email }}"></parameter>
+		<parameter name="smtpSecurity" type="1" value="{{ syncrify_server_smtp_security }}"></parameter>
+		<parameter name="UseRdbmsForDeleteRetension" type="4" value="{{ syncrify_server_use_rdbms_for_delete_retension }}"></parameter>
+		<parameter name="jvmPath" type="1" value="{{ syncrify_server_jvm_path }}"></parameter>
+		<parameter name="httpPortSSL" type="2" value="{{ syncrify_server_http_port_ssl }}"></parameter>
+		<parameter name="vmParams" type="1" value="{{ syncrify_server_vm_params }}"></parameter>
+		<parameter name="httpPort" type="2" value="{{ syncrify_server_http_port }}"></parameter>
+		<parameter name="synametricsUrl" type="1" value="{{ syncrify_server_synametrics_url }}"></parameter>
+		<parameter name="lastSelectedTab" type="1" value="{{ syncrify_server_last_selected_tab }}"></parameter>
+		<parameter name="emailServerWebServicePort" type="2" value="{{ syncrify_server_email_server_web_service_port }}"></parameter>
+		<parameter name="imagePath" type="1" value="{{ syncrify_server_image_path }}"></parameter>
+		<parameter name="blockRDBMSToHandlers" type="4" value="{{ syncrify_server_block_rdbms_to_handlers }}"></parameter>
+		<parameter name="defaultOperation" type="1" value="{{ syncrify_server_default_operation }}"></parameter>
+		<parameter name="RansomwareFileName" type="1" value="{{ syncrify_server_ransomware_file_name }}"></parameter>
+		<parameter name="httpPort2" type="2" value="{{ syncrify_server_http_port2 }}"></parameter>
+		<parameter name="smtpServer" type="1" value="{{ syncrify_server_smtp_server }}"></parameter>
+		<parameter name="smtpUser" type="1" value="{{ syncrify_server_smtp_user }}"></parameter>
+		<parameter name="failureOverHttpPort" type="2" value="{{ syncrify_server_failure_over_http_port }}"></parameter>
+		<parameter name="disableCSRFPrevention" type="4" value="{{ syncrify_server_disable_csrf_prevention }}"></parameter>
+		<parameter name="httpIP" type="1" value="{{ syncrify_server_http_ip }}"></parameter>
+		<parameter name="smtpPort" type="2" value="{{ syncrify_server_smtp_port }}"></parameter>
+		<parameter name="cd" type="2" value="{{ syncrify_server_cd }}"></parameter>
+		<parameter name="emailServerWebServiceHost" type="1" value="{{ syncrify_server_email_server_web_service_host }}"></parameter>
+		<parameter name="smtpPassword" type="1" value="{{ syncrify_server_smtp_password }}"></parameter>
+		<parameter name="ntServiceCommand" type="1" value="{{ syncrify_server_nt_service_command }}"></parameter>
+		<parameter name="useWebSmtp" type="4" value="{{ syncrify_server_use_web_smtp }}"></parameter>
+		<parameter name="mimicHtmlFiles" type="4" value="{{ syncrify_server_mimic_html_files }}"></parameter>
+		<parameter name="preferredHostNameForClients" type="1" value="{{ syncrify_server_preferred_host_name_for_clients }}"></parameter>
+		{% if syncrify_folder.stat.exists %}
+		<parameter name="InitialSetupComplete" type="4" value="true"></parameter>
+		{% endif %}
+	</parameters>
+</Configuration>

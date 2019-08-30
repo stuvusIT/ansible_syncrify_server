@@ -1,0 +1,12 @@
+[Unit]
+Description=Service for Syncrify Start on boot
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/etc/init.d/syncrify start
+ExecStop=/etc/init.d/syncrify stop
+ExecRestart=/etc/init.d/syncrify restart
+
+[Install]
+WantedBy=multi-user.target
