@@ -28,7 +28,7 @@
     remote_src: yes
   when: not syncrify_folder.stat.exists
 
-- name: Set executable for Install.sh
+- name: Set executable bit for Install.sh
   file:
     path: /tmp/syncrify/Install.sh
     owner: root
