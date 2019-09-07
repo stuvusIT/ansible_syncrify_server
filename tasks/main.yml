@@ -14,10 +14,6 @@
     dest: /tmp/syncrify-server.tar
   when: not syncrify_folder.stat.exists
 
-- debug:
-    msg: "The file or directory exists"
-  when: syncrify_folder.stat.exists
-
 - name: Create extraction dir
   file:
     path: /tmp/syncrify
@@ -66,7 +62,7 @@
     group: "{{ syncrify_server_group }}"
     recurse: yes
 
-- name: Systemd service
+- name: Add syncrify systemd service
   template:
     src: syncrify.service.j2
     dest: /etc/systemd/system/syncrify.service
