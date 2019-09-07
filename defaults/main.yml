@@ -25,4 +25,6 @@ syncrify_server_disable_csrf_prevention: true
 syncrify_server_cd: 1565091689911
 syncrify_server_nt_service_command: systemctl start syncrify.service
 syncrify_server_mimic_html_files: false
+syncrify_server_user: syncrify
+syncrify_server_group: syncrify
 

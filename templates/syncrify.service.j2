@@ -7,6 +7,8 @@ Type=forking
 ExecStart=/etc/init.d/syncrify start
 ExecStop=/etc/init.d/syncrify stop
 ExecRestart=/etc/init.d/syncrify restart
+User={{ syncrify_server_user }}
+Group={{ syncrify_server_group }}
 
 [Install]
 WantedBy=multi-user.target

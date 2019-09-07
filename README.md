@@ -38,6 +38,8 @@ An apt based system
 | `syncrify_server_cd`                              | `1565091689911`                             |                                              |
 | `syncrify_server_nt_service_command`              | `systemctl start syncrify.service`          | The nt service command                       |
 | `syncrify_server_mimic_html_files`                | `false`                                     | Mimic html files                             |
+| `syncrify_server_user`                            | `syncrify`                                  | User under which to run the syncrify server  |
+| `syncrify_server_group`                           | `syncrify`                                  | Group under which to run the syncrify server |
 
 
 ## Example

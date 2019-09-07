@@ -51,6 +51,21 @@
     src: AppConfig.xml.j2
     dest: /opt/Syncrify/config/AppConfig.xml
 
+- name: Ensure group "{{ syncrify_server_group }}" exists
+  group:
+    name: "{{ syncrify_server_group }}"
+
+- name: Add syncrify user
+  user:
+    name: "{{ syncrify_server_user }}"
+
+- name: Set owner and group for files
+  file:
+    path: /opt/Syncrify
+    owner: "{{ syncrify_server_user }}"
+    group: "{{ syncrify_server_group }}"
+    recurse: yes
+
 - name: Systemd service
   template:
     src: syncrify.service.j2
