@@ -25,7 +25,7 @@ An apt based system
 | `syncrify_server_http_ip`                         | `127.0.0.1`                                 | Ip address to bind to                        |
 | `syncrify_server_http_port`                       | `0`                                         | Http port to listen on (0 disables the port) |
 | `syncrify_server_http_port2`                      | `5800`                                      | Http port to listen on                       |
-| `syncrify_server_http_port_ssl`                   | `-1`                                        | SSL Port -1 disables the port                |
+| `syncrify_server_http_port_ssl`                   | `-1`                                        | SSL Port. A value of `-1` disables the port                |
 | `syncrify_server_vm_params`                       | `-Xmx512m -DLoggingConfigFile=logconfig.xm` | Java VM parameters                           |
 | `syncrify_server_synametrics_url`                 | `http://synametrics.com/SynametricsWebApp/` | Synametrics URl                              |
 | `syncrify_server_last_selected_tab`               | `1`                                         | Which tab was last selected                  |
