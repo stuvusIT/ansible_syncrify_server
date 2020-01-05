@@ -1,7 +1,7 @@
 ---
 galaxy_info:
-  author: Insert author(s) here
-  description: Insert description here
+  author: Fritz Otlinghaus (fritz.otlinghaus@stuvus.uni-stuttgart.de)
+  description: private cloud backup software using rsync
   company: stuvus (https://stuvus.uni-stuttgart.de)
 
   license: CC-BY-SA
@@ -12,8 +12,12 @@ galaxy_info:
     - name: Debian
       versions:
         - stretch
+        - bionic
 
   galaxy_tags:
-    - Insert ansible galaxy tags here
+    - storage
+    - backup
+    - rsync
+    - synchronization
 
 dependencies: []

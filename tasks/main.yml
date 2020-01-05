@@ -8,44 +8,46 @@
     path: /opt/Syncrify
   register: syncrify_folder
 
-- name: Download syncrify server
-  get_url:
-    url: http://www2.synametrics.com/files/Syncrify/SyncrifyLinux64.tar
-    dest: /tmp/syncrify-server.tar
+- block:
+  - name: Download syncrify server to local machine
+    get_url:
+      url: https://www2.synametrics.com/files/Syncrify/SyncrifyLinux64.tar
+      dest: "{{ global_cache_dir | mandatory }}/syncrify"
+
+  - name: Create temp directory to extract to
+    tempfile:
+      suffix: synrify
+      state: directory
+    register: tmpdir
+
+  - name: Unarchive syncrify files
+    unarchive:
+      src: "{{ global_cache_dir | mandatory }}/syncrify"
+      dest: "{{ tmpdir.path }}"
+
+  - name: Set executable bit for Install.sh
+    file:
+      path: "{{ tmpdir.path }}/Install.sh"
+      owner: root
+      group: root
+      mode: 0700
+
+  - name: Run install script
+    command: sh Install.sh
+    args:
+      chdir: "{{ tmpdir.path }}"
+
+  # Block condition
   when: not syncrify_folder.stat.exists
 
-- name: Create extraction dir
-  file:
-    path: /tmp/syncrify
-    state: directory
-    recurse: yes
-  when: not syncrify_folder.stat.exists
-
-- name: Unarchive syncrify files
-  unarchive:
-    src: /tmp/syncrify-server.tar
-    dest: /tmp/syncrify
-    remote_src: yes
-  when: not syncrify_folder.stat.exists
-
-- name: Set executable bit for Install.sh
-  file:
-    path: /tmp/syncrify/Install.sh
-    owner: root
-    group: root
-    mode: '0700'
-  when: not syncrify_folder.stat.exists
-
-- name: Run install script
-  command: sh Install.sh
-  args:
-    chdir: /tmp/syncrify/
-  when: not syncrify_folder.stat.exists
-
-- name: Place AppConfig.xml
+- name: Write configurion AppConfig.xml
   template:
     src: AppConfig.xml.j2
     dest: /opt/Syncrify/config/AppConfig.xml
+    owner: "{{ syncrify_server_user }}"
+    group: "{{ syncrify_server_group }}"
+    mode: 0640
+  notify: Enable and restart syncrify service
 
 - name: Ensure group "{{ syncrify_server_group }}" exists
   group:
@@ -54,8 +56,9 @@
 - name: Add syncrify user
   user:
     name: "{{ syncrify_server_user }}"
+    group: "{{ syncrify_server_group }}"
 
-- name: Set owner and group for files
+- name: Set owner and group for Syncrify files
   file:
     path: /opt/Syncrify
     owner: "{{ syncrify_server_user }}"
@@ -69,11 +72,4 @@
     owner: root
     group: root
     mode: 0644
-  register: unit
-
-- name: Enable and start
-  systemd:
-    name: syncrify.service
-    state: started
-    enabled: true
-    daemon_reload: "{{ unit.changed }}"
+  notify: Reload systemd units
